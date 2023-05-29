@@ -1,0 +1,14 @@
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  transition-duration: 0.2s;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  border-radius: 50%;
+  transition-duration: 0.2s;
+}
