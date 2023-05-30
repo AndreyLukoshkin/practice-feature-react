@@ -4,20 +4,20 @@ const useEndlessScroll = (childRef, callbackFromList) => {
   const observer = useRef()
 
   useEffect(() => {
-    const options = {
-      root: null,
-    }
-
     observer.current = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
-        console.log(callbackFromList)
         callbackFromList()
       }
-    }, options)
+    })
 
-    observer.current.observe(childRef.current)
+    if (childRef.current) {
+      observer.current.observe(childRef.current)
+    }
+
     return () => {
-      observer.current.unobserve(childRef.current)
+      if (childRef.current) {
+        observer.current.unobserve(childRef.current)
+      }
     }
   }, [callbackFromList])
 

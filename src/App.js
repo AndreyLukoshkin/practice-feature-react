@@ -2,6 +2,7 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ComponentsContainer from './components/ComponentsContainer'
 import List from './components/List'
+import Posts from './components/Posts'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
               <Routes>
                 <Route path="*" element={<ComponentsContainer />} />
                 <Route path="list" element={<List />} />
+                <Route path="posts" element={<Posts />} />
               </Routes>
             </div>
           </main>

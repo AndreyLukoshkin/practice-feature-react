@@ -8,6 +8,7 @@ import TextInputWithFocusButton from './TextInputWithFocusButton'
 import ControlledInputWithCustomHook from './ControlledInputWithCustomHook'
 import Hover from './Hover'
 import { useNavigate } from 'react-router-dom'
+import Debounce from './Debounce'
 
 const ComponentsContainer = () => {
   const navigate = useNavigate()
@@ -25,6 +26,8 @@ const ComponentsContainer = () => {
       <button onClick={() => navigate('/list')}>
         JSON List with custom hooks
       </button>
+      <Debounce />
+      <button onClick={() => navigate('/posts')}>Posts</button>
     </div>
   )
 }
