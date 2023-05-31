@@ -14,7 +14,7 @@ const ComponentsContainer = () => {
   const navigate = useNavigate()
 
   return (
-    <div>
+    <div className="container">
       <Toggle />
       <ControlledInput />
       <SquareOrCircle />
@@ -23,11 +23,12 @@ const ComponentsContainer = () => {
       <TextInputWithFocusButton />
       <ControlledInputWithCustomHook />
       <Hover />
-      <button onClick={() => navigate('/list')}>
-        JSON List with custom hooks
-      </button>
+      <button onClick={() => navigate('/list')}>ListEndlessScroll</button>
       <Debounce />
-      <button onClick={() => navigate('/posts')}>Posts</button>
+      <button onClick={() => navigate('/posts')}>Posts axios</button>
+      <button style={{ margin: '20px 0' }} onClick={() => navigate('/redux')}>
+        Redux practice
+      </button>
     </div>
   )
 }

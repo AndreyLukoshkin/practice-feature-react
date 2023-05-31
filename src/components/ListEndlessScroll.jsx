@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import useEndlessScroll from '../hooks/useEndlessScroll'
 import { useRef, useState } from 'react'
 
-const List = () => {
+const ListEndlessScroll = () => {
   const navigate = useNavigate()
   const [posts, setPosts] = useState([])
   const [page, setPage] = useState(1)
@@ -38,4 +38,4 @@ const List = () => {
   )
 }
 
-export default List
+export default ListEndlessScroll
