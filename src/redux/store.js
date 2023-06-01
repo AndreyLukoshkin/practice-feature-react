@@ -1,8 +1,10 @@
-// Создать хранилище (store), объединив редьюсеры и применив middleware (при необходимости), например:
+// Создать хранилище (store), объединив редьюсеры combineReducers (при необходимости), например:
 
-import { createStore } from 'redux'
-import counterReducer from './reducers'
+import { createStore, combineReducers } from 'redux'
+import reducers from './reducers'
 
-const store = createStore(counterReducer)
+const rootReducer = combineReducers(reducers)
+
+const store = createStore(rootReducer)
 
 export default store
