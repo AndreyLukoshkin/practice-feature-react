@@ -1,9 +1,10 @@
 // Создать хранилище (store), объединив редьюсеры combineReducers (при необходимости), например:
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
 import counterReducer from './CounterRedux/counterReducer'
 import cashReducer from './CashBankRedux/cashReducer'
 import customerReducer from './CustomerRedux/customerReducer'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import thunk from 'redux-thunk'
 
 const rootReducer = combineReducers({
   counter: counterReducer,
@@ -11,6 +12,9 @@ const rootReducer = combineReducers({
   customer: customerReducer,
 })
 
-const store = createStore(rootReducer, composeWithDevTools())
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(thunk))
+)
 
 export default store

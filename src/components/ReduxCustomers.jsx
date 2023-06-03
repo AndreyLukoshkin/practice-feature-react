@@ -4,6 +4,7 @@ import {
   addCustomer,
   removeCustomer,
 } from '../redux/CustomerRedux/actionsCustomer'
+import { fetchCustomers } from '../asyncActions/customers'
 
 const ReduxCustomers = () => {
   const [value, setValue] = useState('')
@@ -40,6 +41,9 @@ const ReduxCustomers = () => {
       />
       <button onClick={() => dispatch(addCustomer(value, setValue))}>
         Add customer
+      </button>
+      <button onClick={() => dispatch(fetchCustomers())}>
+        Get clients from base
       </button>
     </div>
   )
