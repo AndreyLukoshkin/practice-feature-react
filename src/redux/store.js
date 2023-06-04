@@ -1,9 +1,9 @@
 // Создать хранилище (store), объединив редьюсеры combineReducers (при необходимости), например:
 import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
 import counterReducer from './CounterRedux/counterReducer'
 import cashReducer from './CashBankRedux/cashReducer'
 import customerReducer from './CustomerRedux/customerReducer'
-import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 
 const rootReducer = combineReducers({

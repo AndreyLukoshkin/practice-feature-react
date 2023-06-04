@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   addCustomer,
+  clearListCustomer,
   removeCustomer,
 } from '../redux/CustomerRedux/actionsCustomer'
 import { fetchCustomers } from '../asyncActions/customers'
@@ -10,7 +11,6 @@ const ReduxCustomers = () => {
   const [value, setValue] = useState('')
   const customers = useSelector((state) => state.customer.customers)
   const dispatch = useDispatch()
-  console.log(value)
 
   return (
     <div>
@@ -44,6 +44,9 @@ const ReduxCustomers = () => {
       </button>
       <button onClick={() => dispatch(fetchCustomers())}>
         Get clients from base
+      </button>
+      <button onClick={() => dispatch(clearListCustomer(customers))}>
+        Clear list
       </button>
     </div>
   )

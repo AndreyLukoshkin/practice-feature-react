@@ -15,6 +15,8 @@ const customerReducer = (state = defaultState, action) => {
           (customer) => customer.id !== action.payload
         ),
       }
+    case 'CLEAR_LIST_CUSTOMERS':
+      return { customers: [] }
     default:
       return state
   }

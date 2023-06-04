@@ -16,3 +16,9 @@ export const removeCustomer = (customer) => {
     payload: customer.id,
   }
 }
+
+export const clearListCustomer = (customers) => {
+  return {
+    type: 'CLEAR_LIST_CUSTOMERS',
+  }
+}
