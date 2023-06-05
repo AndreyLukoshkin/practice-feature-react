@@ -20,10 +20,10 @@ const Posts = () => {
         <Loader />
       ) : (
         posts &&
-        posts.map((post) => (
+        posts.map((post, i) => (
           <div
             style={{ border: '1px solid black', padding: '10px' }}
-            key={post.id}
+            key={i + 1}
           >
             {post.id}. {post.title}
           </div>
