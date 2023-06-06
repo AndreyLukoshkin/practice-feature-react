@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import useRequest from '../hooks/useRequest'
 import axios from 'axios'
-import Loader from './UI/Loader'
+import Loader from '../UI/Loader'
 
 const Posts = () => {
   const navigate = useNavigate()
