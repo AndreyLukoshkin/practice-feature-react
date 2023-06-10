@@ -6,6 +6,7 @@ import Posts from './components/Posts'
 import ReduxPractice from './components/ReduxPractice'
 import { Provider } from 'react-redux'
 import store from './redux/store'
+import Cart from './components/Cart'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
                 <Route path="list" element={<ListEndlessScroll />} />
                 <Route path="posts" element={<Posts />} />
                 <Route path="redux" element={<ReduxPractice />} />
+                <Route path="cart" element={<Cart />} />
               </Routes>
             </main>
             <footer className="footer">React</footer>
