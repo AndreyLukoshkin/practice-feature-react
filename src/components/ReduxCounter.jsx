@@ -3,7 +3,7 @@ import {
   increment,
   decrement,
   restart,
-} from '../redux/CounterRedux/actionsCounter'
+} from '../redux/counterRedux/actionsCounter'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
