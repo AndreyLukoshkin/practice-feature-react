@@ -3,6 +3,7 @@ const defaultState = {
 }
 
 const ADD_CUSTOMER = 'ADD_CUSTOMER'
+const ADD_MANY_CUSTOMERS = 'ADD_MANY_CUSTOMERS'
 const REMOVE_CUSTOMER = 'REMOVE_CUSTOMER'
 const REMOVE_ALL_CUSTOMERS = 'REMOVE_ALL_CUSTOMERS'
 
@@ -12,6 +13,11 @@ const customerReducer = (state = defaultState, action) => {
       return {
         ...state,
         customers: [...state.customers, action.payload],
+      }
+    case ADD_MANY_CUSTOMERS:
+      return {
+        ...state,
+        customers: [...state.customers, ...action.payload],
       }
     case REMOVE_CUSTOMER:
       return {

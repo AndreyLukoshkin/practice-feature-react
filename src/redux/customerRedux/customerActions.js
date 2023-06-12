@@ -10,6 +10,13 @@ export const addCustomer = (name, setValueCustomer) => {
   }
 }
 
+export const addManyCustomers = (customers) => {
+  return {
+    type: 'ADD_MANY_CUSTOMERS',
+    payload: customers,
+  }
+}
+
 export const removeCustomer = (customerId) => {
   return {
     type: 'REMOVE_CUSTOMER',

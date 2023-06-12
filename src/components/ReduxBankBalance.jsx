@@ -5,7 +5,8 @@ import {
   addCustomer,
   removeAllCustomers,
   removeCustomer,
-} from '../redux/customerReducer/customerActions'
+} from '../redux/customerRedux/customerActions'
+import { fetchCustomers } from '../asyncActions/customers'
 
 const ReduxBankBalance = () => {
   const [value, setValue] = useState('')
@@ -44,6 +45,9 @@ const ReduxBankBalance = () => {
         >
           Add customer
         </button>
+        <button onClick={() => dispatch(fetchCustomers())}>
+          Add many customers
+        </button>
         <button onClick={() => dispatch(removeAllCustomers())}>
           Remove all customer
         </button>
@@ -51,6 +55,11 @@ const ReduxBankBalance = () => {
           <div>
             {customers.map((customer) => (
               <div
+                style={{
+                  border: '1px solid black',
+                  padding: '3px 5px',
+                  margin: '2px 0',
+                }}
                 key={customer.id}
                 onClick={() => dispatch(removeCustomer(customer.id))}
               >
