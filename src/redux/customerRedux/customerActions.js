@@ -17,6 +17,13 @@ export const addManyCustomers = (customers) => {
   }
 }
 
+export const asyncAddManyCustomers = (customers) => {
+  return {
+    type: 'ASYNC_ADD_MANY_CUSTOMERS',
+    payload: customers,
+  }
+}
+
 export const removeCustomer = (customerId) => {
   return {
     type: 'REMOVE_CUSTOMER',

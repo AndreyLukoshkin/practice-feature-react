@@ -1,6 +1,7 @@
 import ReduxCounter from './ReduxCounter'
 import ReduxBankBalance from './ReduxBankBalance'
 import ReduxCart from './ReduxCart'
+import ReduxSaga from './ReduxSaga'
 
 const ReduxPractice = () => {
   return (
@@ -8,6 +9,7 @@ const ReduxPractice = () => {
       <ReduxCounter />
       <ReduxBankBalance />
       <ReduxCart />
+      <ReduxSaga />
     </div>
   )
 }

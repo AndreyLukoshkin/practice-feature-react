@@ -7,7 +7,6 @@ export const fetchCustomers = () => {
       const response = await axios.get(
         'https://jsonplaceholder.typicode.com/users'
       )
-      console.log(response)
       const data = await response.data
       dispatch(addManyCustomers(data))
     } catch (error) {

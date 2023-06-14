@@ -12,7 +12,7 @@ const ReduxCart = () => {
 
   return (
     <div>
-      <h2>Product List</h2>
+      <h2>Redux products list with cart</h2>
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
         <div>
           {products.map((product) => (

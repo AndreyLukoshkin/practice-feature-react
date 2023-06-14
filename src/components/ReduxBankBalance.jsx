@@ -16,9 +16,16 @@ const ReduxBankBalance = () => {
   const customers = useSelector((state) => state.customers.customers)
 
   return (
-    <div style={{ margin: '20px 0', width: '30%' }}>
+    <div style={{ margin: '20px 0' }}>
+      <h2>Redux thunk, api customers async/await/axios, add/get cash</h2>
       <h3>Balance {cash}</h3>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: '40%',
+        }}
+      >
         <input
           type="number"
           value={value}

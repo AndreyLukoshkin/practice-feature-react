@@ -14,13 +14,15 @@ const ReduxCounter = () => {
 
   return (
     <div>
-      <h3>Simple Counter with Redux, Redux practice</h3>
       <button onClick={() => navigate('redux')}>Main</button>
-      <div>
-        <h2>Counter: {count}</h2>
-        <button onClick={() => dispatch(increment())}>Increment</button>
-        <button onClick={() => dispatch(decrement())}>Decrement</button>
-        <button onClick={() => dispatch(restart())}>Restart</button>
+      <div style={{ margin: '20px 0' }}>
+        <h1>Redux practice, thunk, saga</h1>
+        <div style={{ margin: '20px 0' }}>
+          <h2>Counter: {count}</h2>
+          <button onClick={() => dispatch(increment())}>Increment</button>
+          <button onClick={() => dispatch(decrement())}>Decrement</button>
+          <button onClick={() => dispatch(restart())}>Restart</button>
+        </div>
       </div>
     </div>
   )
