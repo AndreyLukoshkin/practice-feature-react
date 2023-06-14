@@ -2,14 +2,26 @@
 
 import { call, put, takeEvery } from 'redux-saga/effects'
 import { addManyCustomers } from '../customerRedux/customerActions'
+import axios from 'axios'
 
-const fetchUsersFromApi = () =>
-  fetch('https://jsonplaceholder.typicode.com/users?_limit=10')
+const fetchUsersFromApi = async () => {
+  const response = await axios.get(
+    'https://jsonplaceholder.typicode.com/users?_limit=10'
+  )
+  return response.data
+}
+
+const handleError = (error) => {
+  console.error('ERROR! MESSAGE:', error)
+}
 
 export function* fetchUsersWorker() {
-  const data = yield call(fetchUsersFromApi)
-  const json = yield call(() => new Promise((resolve) => resolve(data.json())))
-  yield put(addManyCustomers(json))
+  try {
+    const data = yield call(fetchUsersFromApi)
+    yield put(addManyCustomers(data))
+  } catch (error) {
+    yield call(handleError, error)
+  }
 }
 
 export function* userWatcher() {

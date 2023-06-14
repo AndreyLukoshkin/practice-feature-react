@@ -1,15 +1,15 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {
-  restart,
   asyncIncrement,
   asyncDecrement,
-} from '../redux/reduxSaga/actionsCounter'
+  asyncRestart,
+} from '../redux/counterRedux/actionsCounter'
 import { asyncAddManyCustomers } from '../redux/customerRedux/customerActions'
 
 const ReduxSaga = () => {
   const dispatch = useDispatch()
-  const count = useSelector((state) => state.reducerCounter.count)
+  const count = useSelector((state) => state.counter.count)
   const customers = useSelector((state) => state.customers.customers)
 
   return (
@@ -19,7 +19,7 @@ const ReduxSaga = () => {
         <h3>Counter: {count}</h3>
         <button onClick={() => dispatch(asyncIncrement())}>Increment</button>
         <button onClick={() => dispatch(asyncDecrement())}>Decrement</button>
-        <button onClick={() => dispatch(restart())}>Restart</button>
+        <button onClick={() => dispatch(asyncRestart())}>Restart</button>
       </div>
       <button onClick={() => dispatch(asyncAddManyCustomers())}>
         Add many customers

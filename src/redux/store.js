@@ -3,7 +3,6 @@ import counterReducer from './counterRedux/counterReducer'
 import cashReducer from './cashBankRedux/cashReducer'
 import reducerCart from './cartRedux/reducerCart'
 import customerReducer from './customerRedux/customerReducer'
-import reducerCounter from './reduxSaga/reducerCounter'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import createSagaMiddleware from 'redux-saga'
@@ -16,7 +15,6 @@ const rootReducer = combineReducers({
   calculateCash: cashReducer,
   cart: reducerCart,
   customers: customerReducer,
-  reducerCounter: reducerCounter,
 })
 
 const store = createStore(

@@ -17,3 +17,21 @@ export const restart = () => {
     type: 'RESTART',
   }
 }
+
+export const asyncIncrement = () => {
+  return {
+    type: 'ASYNC_INCREMENT',
+  }
+}
+
+export const asyncDecrement = () => {
+  return {
+    type: 'ASYNC_DECREMENT',
+  }
+}
+
+export const asyncRestart = () => {
+  return {
+    type: 'ASYNC_RESTART',
+  }
+}
