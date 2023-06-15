@@ -1,19 +1,13 @@
-export const addToCart = (products, price, id) => {
+export const addToCart = (products) => {
   return {
     type: 'SET_PRODUCTS',
-    payloadName: products,
-    payloadPrice: price,
-    payloadId: id,
+    payload: products,
   }
 }
 
-export const deleteFromCart = (product, price, i, sum) => {
-  console.log(price, i)
+export const deleteFromCart = (product) => {
   return {
     type: 'DELETE_PRODUCT',
     payload: product,
-    payloadPrice: price,
-    payloadI: i,
-    payloadSum: sum,
   }
 }

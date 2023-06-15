@@ -1,7 +1,5 @@
-// сага для экшенов пользователя
-
 import { call, put, takeEvery } from 'redux-saga/effects'
-import { addManyCustomers } from '../customerRedux/customerActions'
+import { addSagaCustomers } from '../customerRedux/customerActions'
 import axios from 'axios'
 
 const fetchUsersFromApi = async () => {
@@ -11,16 +9,12 @@ const fetchUsersFromApi = async () => {
   return response.data
 }
 
-const handleError = (error) => {
-  console.error('ERROR! MESSAGE:', error)
-}
-
 export function* fetchUsersWorker() {
   try {
     const data = yield call(fetchUsersFromApi)
-    yield put(addManyCustomers(data))
+    yield put(addSagaCustomers(data))
   } catch (error) {
-    yield call(handleError, error)
+    console.error('ERROR! MESSAGE:', error)
   }
 }
 

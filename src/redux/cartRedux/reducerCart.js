@@ -10,21 +10,21 @@ const reducerCart = (state = initialState, action) => {
     case 'SET_PRODUCTS':
       return {
         ...state,
-        products: [...state.products, action.payloadName],
-        price: [...state.price, action.payloadPrice],
-        sum: [...state.price, action.payloadPrice].reduce((a, b) => a + b, 0),
-        id: [...state.id, action.payloadId],
+        products: [...state.products, action.payload.title],
+        price: [...state.price, action.payload.id],
+        sum: [...state.price, action.payload.id].reduce((a, b) => a + b, 0),
+        id: [...state.id, action.payload.id],
       }
     case 'DELETE_PRODUCT':
       return {
         ...state,
-        products: state.products.filter((product, i) => {
-          return product[i] !== action.payload[action.payloadI]
+        products: state.id.filter((id, i) => {
+          return id !== action.payload[action.payload.id]
         }),
         price: state.price.filter((_, i) => {
-          return i !== action.payloadI
+          return i !== action.payload.id
         }),
-        sum: [action.payloadSum - action.payloadPrice[action.payloadI]],
+        sum: [action.payload.sum - action.payload.id[action.payload.id]],
       }
     default:
       return state

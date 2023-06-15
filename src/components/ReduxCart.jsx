@@ -12,7 +12,7 @@ const ReduxCart = () => {
 
   return (
     <div>
-      <h2>Redux products list with cart</h2>
+      <h2>Redux Cart products list with cart</h2>
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
         <div>
           {products.map((product) => (
@@ -26,13 +26,11 @@ const ReduxCart = () => {
                 cursor: 'pointer',
                 margin: '2px',
               }}
-              onClick={() =>
-                dispatch(addToCart(product.name, product.price, product.id))
-              }
+              onClick={() => dispatch(addToCart(product))}
               key={product.id}
             >
-              {product.name}
-              <p>{product.price}</p>
+              {product.title}
+              <p>{product.id} $</p>
             </div>
           ))}
         </div>

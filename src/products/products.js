@@ -1,14 +1,14 @@
 const products = [
-  { id: 1, name: 'Product 1', price: 10 },
-  { id: 2, name: 'Product 2', price: 20 },
-  { id: 3, name: 'Product 3', price: 30 },
-  { id: 4, name: 'Product 4', price: 15 },
-  { id: 5, name: 'Product 5', price: 25 },
-  { id: 6, name: 'Product 6', price: 12 },
-  { id: 7, name: 'Product 7', price: 18 },
-  { id: 8, name: 'Product 8', price: 22 },
-  { id: 9, name: 'Product 9', price: 28 },
-  { id: 10, name: 'Product 10', price: 14 },
+  { id: 1, title: 'Product 1' },
+  { id: 2, title: 'Product 2' },
+  { id: 3, title: 'Product 3' },
+  { id: 4, title: 'Product 4' },
+  { id: 5, title: 'Product 5' },
+  { id: 6, title: 'Product 6' },
+  { id: 7, title: 'Product 7' },
+  { id: 8, title: 'Product 8' },
+  { id: 9, title: 'Product 9' },
+  { id: 10, title: 'Product 10' },
 ]
 
 export default products

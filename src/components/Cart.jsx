@@ -26,7 +26,7 @@ const Cart = () => {
                 margin: '2px 0px',
                 maxWidth: '100px',
               }}
-              onClick={() => dispatch(deleteFromCart(product, price, i, sum))}
+              onClick={() => dispatch(deleteFromCart(product))}
               key={i + 1}
             >
               {product}

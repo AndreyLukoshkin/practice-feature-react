@@ -3,18 +3,22 @@ import counterReducer from './counterRedux/counterReducer'
 import cashReducer from './cashBankRedux/cashReducer'
 import reducerCart from './cartRedux/reducerCart'
 import customerReducer from './customerRedux/customerReducer'
+import sagaCustomerReducer from './reduxSaga/sagaCustomersReducer'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import createSagaMiddleware from 'redux-saga'
-import { rootWatcherSaga } from './reduxSaga/rootWatcherSaga'
+import { rootWatcherSaga } from './rootWatcherSaga'
+import reducerCartRedux from './productCartRedux/reducerCartRedux'
 
 const sagaMiddleware = createSagaMiddleware()
 
 const rootReducer = combineReducers({
   counter: counterReducer,
   calculateCash: cashReducer,
-  cart: reducerCart,
   customers: customerReducer,
+  cart: reducerCart,
+  sagaCustomerReducer,
+  reducerCartRedux,
 })
 
 const store = createStore(

@@ -17,6 +17,13 @@ export const addManyCustomers = (customers) => {
   }
 }
 
+export const addSagaCustomers = (customers) => {
+  return {
+    type: 'ADD_SAGA_CUSTOMERS',
+    payload: customers,
+  }
+}
+
 export const asyncAddManyCustomers = (customers) => {
   return {
     type: 'ASYNC_ADD_MANY_CUSTOMERS',
