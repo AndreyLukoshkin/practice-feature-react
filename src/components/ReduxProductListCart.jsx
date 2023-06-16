@@ -1,26 +1,26 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
+  addProductToCartModel,
   asyncActionCartRedux,
   idFromProduct,
 } from '../redux/productCartRedux/actionCartRedux'
 import { useNavigate } from 'react-router-dom'
 import Loader from '../UI/Loader'
+import ReduxSagaCartModel from './ReduxSagaCartModel'
 
 const ReduxProductListCart = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const productsList = useSelector(
-    (state) => state.reducerCartRedux.productsCart
-  )
+  const productsList = useSelector((state) => state.reducerCartRedux)
 
   useEffect(() => {
     dispatch(asyncActionCartRedux())
   }, [dispatch])
 
-  const handleClick = (idPage) => {
-    dispatch(idFromProduct(idPage))
-    navigate(`/details/${idPage}`)
+  const handleClick = (id) => {
+    dispatch(idFromProduct(id))
+    navigate(`/details/${id}`)
   }
 
   return (
@@ -28,17 +28,27 @@ const ReduxProductListCart = () => {
       <h2>ReduxProductListCart</h2>
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
         <div style={{ width: '150px' }}>
-          {productsList && productsList.length > 0 ? (
-            productsList.map((el) => (
-              <div key={el.id}>
+          {productsList.productsCart && productsList.productsCart.length > 0 ? (
+            productsList.productsCart.map((product, i) => (
+              <div onClick={() => handleClick(product.id)} key={product.id}>
                 <img
-                  onClick={() => handleClick(el.id)}
-                  src={el.thumbnailUrl}
+                  style={{ cursor: 'pointer' }}
+                  src={product.thumbnailUrl}
                   alt="item"
                 />
-                <p>Price: {el.id}$</p>
-                <p>{el.title}</p>
-                <button style={{ display: 'block', margin: '0 auto' }}>
+                <p style={{ cursor: 'pointer' }}>Price: {product.id}$</p>
+                <p style={{ cursor: 'pointer' }}>{product.title}</p>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    dispatch(addProductToCartModel(product))
+                  }}
+                  style={{
+                    display: 'block',
+                    margin: '0 auto',
+                    cursor: 'pointer',
+                  }}
+                >
                   add to cart
                 </button>
               </div>
@@ -47,16 +57,7 @@ const ReduxProductListCart = () => {
             <Loader />
           )}
         </div>
-        <div
-          style={{ width: '100px', height: '150px', background: 'yellow' }}
-          onClick={() => navigate('/cart')}
-        >
-          <div>
-            <span>Cart</span>
-            <span style={{ background: 'red', color: 'white' }}></span>
-            <div>$</div>
-          </div>
-        </div>
+        <ReduxSagaCartModel />
       </div>
     </div>
   )

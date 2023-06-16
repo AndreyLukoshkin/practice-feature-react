@@ -6,16 +6,14 @@ import { deleteFromCart } from '../redux/cartRedux/actionsCart'
 const Cart = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const products = useSelector((state) => state.cart.products)
-  const sum = useSelector((state) => state.cart.sum)
-  const price = useSelector((state) => state.cart.price)
+  const productsObj = useSelector((state) => state.cart)
 
   return (
     <div>
       <button onClick={() => navigate('/redux')}>Redux practice</button>
-      {products.length > 0 ? (
+      {productsObj.products.length > 0 ? (
         <div>
-          {products.map((product, i) => (
+          {productsObj.products.map((product, i) => (
             <div
               style={{
                 padding: '0px 5px',
@@ -26,13 +24,14 @@ const Cart = () => {
                 margin: '2px 0px',
                 maxWidth: '100px',
               }}
-              onClick={() => dispatch(deleteFromCart(product))}
+              onClick={() => dispatch(deleteFromCart(i))}
               key={i + 1}
             >
-              {product}
+              <p>{product}</p>
+              <p>{productsObj.price[i]}$</p>
             </div>
           ))}
-          <div>Sum: {sum}$</div>
+          <div>Sum: {productsObj.sum}$</div>
         </div>
       ) : (
         <div>Cart is Empty</div>

@@ -5,9 +5,9 @@ export const addToCart = (products) => {
   }
 }
 
-export const deleteFromCart = (product) => {
+export const deleteFromCart = (ind) => {
   return {
     type: 'DELETE_PRODUCT',
-    payload: product,
+    payload: ind,
   }
 }
