@@ -3,6 +3,7 @@ import ReduxBankBalance from './ReduxBankBalance'
 import ReduxCart from './ReduxCart'
 import ReduxSaga from './ReduxSaga'
 import ReduxProductListCart from './ReduxProductListCart'
+import FetchDataSaga from './FetchDataSaga'
 
 const ReduxPractice = () => {
   return (
@@ -12,6 +13,7 @@ const ReduxPractice = () => {
       <ReduxCart />
       <ReduxSaga />
       <ReduxProductListCart />
+      <FetchDataSaga />
     </div>
   )
 }
