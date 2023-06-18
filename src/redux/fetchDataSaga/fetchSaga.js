@@ -1,6 +1,11 @@
 // sagas.js
 import { put, takeEvery, call } from 'redux-saga/effects'
 import axios from 'axios'
+import {
+  fetchDataFailure,
+  fetchDataRequest,
+  fetchDataSuccess,
+} from './actionFetch'
 
 function* fetchDataSaga() {
   try {
@@ -18,6 +23,6 @@ function* fetchDataSaga() {
   }
 }
 
-export function* rootSaga() {
+export function* fetchDataWatcher() {
   yield takeEvery('FETCH_DATA', fetchDataSaga) // Отслеживание экшена FETCH_DATA и вызов саги fetchDataSaga
 }
