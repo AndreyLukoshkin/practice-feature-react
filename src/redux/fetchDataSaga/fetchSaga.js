@@ -1,28 +1,26 @@
-// sagas.js
-import { put, takeEvery, call } from 'redux-saga/effects'
-import axios from 'axios'
+import { call, put, takeEvery } from 'redux-saga/effects'
 import {
-  fetchDataFailure,
-  fetchDataRequest,
-  fetchDataSuccess,
+  actionFetchDataFailure,
+  actionFetchDataRequest,
+  actionFetchDataSuccess,
 } from './actionFetch'
+import axios from 'axios'
 
-function* fetchDataSaga() {
+export function* fetchDataSagaWorker() {
   try {
-    yield put(fetchDataRequest()) // Диспатч экшена FETCH_DATA_REQUEST перед началом запроса
-
+    yield put(actionFetchDataRequest())
     const response = yield call(
       axios.get,
       'https://jsonplaceholder.typicode.com/users'
-    ) // Выполнение асинхронного запроса данных
+    )
     const data = response.data
 
-    yield put(fetchDataSuccess(data)) // Диспатч экшена FETCH_DATA_SUCCESS с полученными данными
+    yield put(actionFetchDataSuccess(data))
   } catch (error) {
-    yield put(fetchDataFailure(error.message)) // Диспатч экшена FETCH_DATA_FAILURE в случае ошибки
+    yield put(actionFetchDataFailure(error.message))
   }
 }
 
-export function* fetchDataWatcher() {
-  yield takeEvery('FETCH_DATA', fetchDataSaga) // Отслеживание экшена FETCH_DATA и вызов саги fetchDataSaga
+export function* fetchDataSagaWatcher() {
+  yield takeEvery('FETCH_DATA', fetchDataSagaWorker)
 }

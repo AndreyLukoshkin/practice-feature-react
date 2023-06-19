@@ -9,7 +9,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import createSagaMiddleware from 'redux-saga'
 import { rootWatcherSaga } from './rootWatcherSaga'
 import reducerCartRedux from './productCartRedux/reducerCartRedux'
-import fetchReducer from './fetchDataSaga/reducerFetch'
+import fetchDataReducer from './fetchDataSaga/reducerFetch'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -20,7 +20,7 @@ const rootReducer = combineReducers({
   cart: reducerCart,
   sagaCustomerReducer,
   reducerCartRedux,
-  fetchReducer,
+  fetchDataReducer,
 })
 
 const store = createStore(
