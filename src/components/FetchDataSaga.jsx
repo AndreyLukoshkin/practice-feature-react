@@ -11,17 +11,32 @@ const FetchDataSaga = () => {
     <div>
       <h2>Fetch Data Saga</h2>
       <button onClick={() => dispatch(actionFetchData())}>Fetch data</button>
-      {data.error ? (
-        <div>Error: {data.error}</div>
-      ) : (
-        <div>
-          {!data.loading ? (
-            data.data.map((el) => <div key={el.id}>{el.name}</div>)
-          ) : (
-            <Loader />
-          )}
-        </div>
-      )}
+      <div>
+        {data.error ? (
+          <div>Error: {data.error}</div>
+        ) : (
+          <div>
+            {!data.loading ? (
+              data.data.map((el) => <div key={el.id}>{el.name}</div>)
+            ) : (
+              <Loader />
+            )}
+          </div>
+        )}
+      </div>
+      <div style={{ margin: '20px 0 0 0' }}>
+        {data.error ? (
+          <div>Error: {data.error}</div>
+        ) : (
+          <div>
+            {!data.loading ? (
+              data.todos.map((el) => <div key={el.id}>{el.title}</div>)
+            ) : (
+              <Loader />
+            )}
+          </div>
+        )}
+      </div>
     </div>
   )
 }

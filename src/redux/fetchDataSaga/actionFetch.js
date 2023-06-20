@@ -14,6 +14,12 @@ export const actionFetchDataSuccess = (data) => {
     payload: data,
   }
 }
+export const actionTodosDataSuccess = (data) => {
+  return {
+    type: 'LOAD_TODOS',
+    payload: data,
+  }
+}
 export const actionFetchDataFailure = (error) => {
   return {
     type: 'FETCH_DATA_FAILURE',

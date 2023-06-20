@@ -31,7 +31,7 @@ const ReduxProductDetails = () => {
               {product.product && product.product.length > 0 ? (
                 <div style={{ width: '150px' }}>
                   <img src={product.product[0].thumbnailUrl} alt="item" />
-                  <div>{product.product[0].id}</div>
+                  <div>Price: {product.product[0].id}$</div>
                   <div>{product.product[0].title}</div>
                   <button
                     onClick={() =>
