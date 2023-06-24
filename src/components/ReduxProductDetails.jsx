@@ -28,7 +28,7 @@ const ReduxProductDetails = () => {
         <div>
           {id < 5001 ? (
             <div>
-              {product.product && product.product.length > 0 ? (
+              {!product.isLoading && product.product.length > 0 ? (
                 <div style={{ width: '150px' }}>
                   <img src={product.product[0].thumbnailUrl} alt="item" />
                   <div>Price: {product.product[0].id}$</div>

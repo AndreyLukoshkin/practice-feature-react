@@ -43,3 +43,16 @@ export const deleteProductFromCartSaga = (id) => {
     payload: id,
   }
 }
+
+export const actionProductDetailsRequest = () => {
+  return {
+    type: 'PRODUCT_DETAILS_REQUEST',
+  }
+}
+
+export const actionProductDetailsFailure = (error) => {
+  return {
+    type: 'PRODUCT_DETAILS_ERROR',
+    payload: error,
+  }
+}

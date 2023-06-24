@@ -4,6 +4,8 @@ const initialValue = {
   product: [],
   prodcutToBuy: [],
   sum: 0,
+  isLoading: false,
+  error: '',
 }
 
 const reducerCartRedux = (state = initialValue, action) => {
@@ -19,10 +21,22 @@ const reducerCartRedux = (state = initialValue, action) => {
           productsCart: [...state.productsCart, ...action.payload],
         }
       }
+    case 'PRODUCT_DETAILS_REQUEST':
+      return {
+        ...state,
+        isLoading: true,
+      }
     case 'OPEN_PRODUCT_DETAILS':
       return {
         ...state,
         product: action.payload,
+        isLoading: false,
+      }
+    case 'PRODUCT_DETAILS_ERROR':
+      return {
+        ...state,
+        error: action.payload,
+        isLoading: false,
       }
     case 'ID_FROM_PRODUCT':
       return {
