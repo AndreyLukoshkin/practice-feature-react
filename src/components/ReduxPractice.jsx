@@ -1,9 +1,9 @@
-import ReduxCounter from './ReduxCounter'
+import FetchDataSaga from './FetchDataSaga'
 import ReduxBankBalance from './ReduxBankBalance'
 import ReduxCart from './ReduxCart'
-import ReduxSaga from './ReduxSaga'
+import ReduxCounter from './ReduxCounter'
 import ReduxProductListCart from './ReduxProductListCart'
-import FetchDataSaga from './FetchDataSaga'
+import ReduxSaga from './ReduxSaga'
 
 const ReduxPractice = () => {
   return (

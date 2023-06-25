@@ -29,7 +29,7 @@ const ReduxProductListCart = () => {
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
         <div style={{ width: '150px' }}>
           {productsList.productsCart && productsList.productsCart.length > 0 ? (
-            productsList.productsCart.map((product, i) => (
+            productsList.productsCart.map((product) => (
               <div onClick={() => handleClick(product.id)} key={product.id}>
                 <img
                   style={{ cursor: 'pointer' }}
